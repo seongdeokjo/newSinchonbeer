@@ -3,4 +3,4 @@
 <br>
 
 ## 수정 전 팀 완성본
-[바로가기] (https://github.com/seongdeokjo/sinchonbeer-bitcamp-finished)
+[바로가기](https://github.com/seongdeokjo/sinchonbeer-bitcamp-finished)

@@ -28,29 +28,20 @@ import com.bitcamp.sc.tour.service.ChangeReservationService;
 import com.bitcamp.sc.tour.service.MailService;
 import com.bitcamp.sc.tour.service.TourService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class ChangeTourController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	private ChangeReservationService changeTourService;
-	private OrderService orderService;
-	private TourService service;	
-	private MailService mailService;
-	private PayService payService;
+	private final ChangeReservationService changeTourService;
+	private final OrderService orderService;
+	private final TourService service;	
+	private final MailService mailService;
+	private final PayService payService;
 
-	public ChangeTourController(ChangeReservationService changeTourService, 
-								OrderService orderService,
-								TourService service,
-								MailService mailService,
-								PayService payService) {
-		
-		this.changeTourService = changeTourService;
-		this.orderService = orderService;
-		this.service = service;
-		this.mailService = mailService;
-		this.payService = payService;
-	}
-
+	
 	// 투어 예약 변경/확인/취소 페이지 가져오기
 	@RequestMapping(value = "/tour/change-info", method = RequestMethod.GET)
 	public String getChangePage(Model model, HttpServletRequest req) {

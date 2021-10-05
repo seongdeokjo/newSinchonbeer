@@ -15,15 +15,15 @@ import com.bitcamp.sc.member.domain.LoginInfo;
 import com.bitcamp.sc.tour.service.AvailablePeopleService;
 import com.bitcamp.sc.tour.service.TourAuthPhoneNumberService;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @RestController
-@AllArgsConstructor
 public class TourRestController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	AvailablePeopleService availableService;	
-	TourAuthPhoneNumberService authNumberService;
+	private final AvailablePeopleService availableService;	
+	private final TourAuthPhoneNumberService authNumberService;
 
 	@GetMapping("/tour/count")
 	public int getCount(@RequestParam("mid") String date) {

@@ -18,6 +18,7 @@ import com.bitcamp.sc.pay.service.impl.PayServiceImpl;
 import com.bitcamp.sc.pay.service.impl.type.KakaoPay;
 import com.bitcamp.sc.shop.domain.ShopDto;
 import com.bitcamp.sc.tour.domain.TourDto;
+import com.bitcamp.sc.tour.service.MailService;
 import com.bitcamp.sc.tour.service.TourService;
 
 import lombok.AllArgsConstructor;
@@ -32,6 +33,7 @@ public class KakaoPayController {
 	private PayServiceImpl payService;
 	private OrderService orderService;
 	private TourService tourService;
+	private MailService mailService;
 	private MemberService memberService;
 	
 	@GetMapping("/kakaoPay")
@@ -99,6 +101,7 @@ public class KakaoPayController {
 		
 		if (orderInfo.getCategory().equals("tour")) {
 			tourService.addTourPeopleByDate(orderInfo.getTourPeople(), tourService.getTourDateByTidx(orderInfo.getTourIdx()));
+			mailService.completeMail(payInfo, memberService.getMember(orderInfo.getMemberIdx()));
 		}
 		
 		orderService.confirmOrder(orderInfo.getIdx());

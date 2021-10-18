@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql205.cc9o83bs1jzk.ap-northeast-2.rds.amazonaws.com/project?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/project?serverTimezone=UTC
     username: bit
     password: bit
     
@@ -43,6 +43,6 @@ mybatis:
       - mapper/**/*.xml  
 
 server:
-  port: 8081
+  port: 8084
   
   

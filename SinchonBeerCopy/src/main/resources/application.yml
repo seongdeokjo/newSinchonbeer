@@ -40,5 +40,8 @@ mybatis:
 
 server:
   port: 8084
+  error:
+   include-exception: true
+   include-stacktrace:  always 
   
   

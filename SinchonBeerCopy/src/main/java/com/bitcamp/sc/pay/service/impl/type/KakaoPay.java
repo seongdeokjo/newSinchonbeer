@@ -20,7 +20,7 @@ import com.bitcamp.sc.pay.domain.KakaoPayReady;
 @Service
 public class KakaoPay {
 
-	private static final String HOST = "http://localhost:8081/";
+	private static final String HOST = "http://localhost:8084/";
 //	private static final String HOST = "http://3.35.0.242:8081/";
 	
 	private KakaoPayReady kakaoPayReady;
@@ -31,7 +31,7 @@ public class KakaoPay {
 		RestTemplate restTemplate = new RestTemplate();
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization", "KakaoAK c961fc7c865d2d6a6bc9b433b4d77b23");
+		headers.add("Authorization", "KakaoAK ef2f8bf297a5c48bad11089fb2ba33f0");
 		headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
 		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 		
@@ -67,7 +67,7 @@ public class KakaoPay {
 		RestTemplate restTemplate = new RestTemplate();
 		
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization", "KakaoAK c961fc7c865d2d6a6bc9b433b4d77b23");
+		headers.add("Authorization", "KakaoAK ef2f8bf297a5c48bad11089fb2ba33f0");
 		headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED_VALUE + ";charset=UTF-8");
 		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 		

@@ -1,80 +1,31 @@
   
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>playingcard</title>
-    
-    <th:block th:include="frame/metaheader"></th:block>
-    
+    <title>playingcard</title> 
     <link rel="stylesheet" href="/css/shop/product34.css" >
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<!-- 이부분기억할것 -->
-    <script>
-        
-		var gphotoname; // 사진이름
-    	var gname;
-        var price;
-        var amount;
-        var gidx;
-        var totalPrice;
-
-        $(document).ready(function(){
-            price = $('#price').val();
-            amount = $('#amount').val();
-            gidx = $('#price').val();
-
-            // 버튼 이벤트
-            $('#plus').click(function(){
-
-                amount++;
-                totalPrice = price * amount;
-                
-                $('#sum_p_num').text(totalPrice);
-                $('#amount').val(amount);
-
-            });
-
-            $('#minus').click(function(){
-                amount--;
-                totalPrice = price * amount;
-
-                $('#sum_p_num').text(totalPrice);
-                $('#amount').val(amount);
-            });
-            
-
-        });
-        
-        
-    </script>  
-    
+	<th:block th:include="frame/metaheader"></th:block>
 </head>
 <body>
    
    <!-- header -->
-
 	<th:block th:include="frame/header"></th:block>
 	<th:block th:include="frame/nav"></th:block>   
 	<th:block th:if="${session.loginInfo == null}">
 		<input type="hidden" th:value="Y" id="check">
 	</th:block>	
 	
-    <div class="container">
-            
+    <div class="container">           
             <img class="gim_thumbnail" src="/images/shop/playingCard.png" alt="화투" >
             <div class="product_1">
                 <h1 class="product_name">SINCHON PLAYINGCARD</h1>
                 <h3 style="color: rgb(83, 81, 81);">신촌맥주 조약돌 화투</h3>
                 <h1 class="price" >8,800원</h1>
-                <h2 style="color:#5ae5ec" >회원가입하면 언제 어디서나 무료 배송</h2>
-                
-                    <!-- 수량 +,-시 가격 변동하는 방법 찾아볼것!!!  -->
+                <h2 style="color:#5ae5ec" >회원가입하면 언제 어디서나 무료 배송</h2>              
                     <div class="edge_color">
                         <td>수량</td>
                         <hr >
@@ -97,22 +48,12 @@
                             </div>
 		                    <div class="row">
 		                            <input type="submit" value="BuyNow"  class="button_form1" style="color: #fff; background-color: #5ae5ec;">
-		                            <input type="submit" value="Basket"	formaction="/basket/basket" class="button_form2"  style="color: #5ae5ec; background-color: #fff;">
-		                         
-		
+		                            <input type="submit" value="Basket"	formaction="/basket/basket" class="button_form2"  style="color: #5ae5ec; background-color: #fff;">		                       		
 		                    </div>	                
-                        </form>
-                        
-                    </div>
-                    
-               
-                
-                
-            </div>
-    
-        
-        <div id="description">
-            
+                        </form>                    
+                    </div>               
+            </div>      
+        <div id="description">           
             <h4 class="goods_detail">상세 정보</h4>
             <hr   class="goods_down" >
             <img class="gim_thumbnail2" src="/images/shop/playingCard.png">
@@ -184,8 +125,8 @@
             </div>
         </div>
     </div>
+   </div> 
+    <script th:src="@{/js/shop/proudct.js}"></script>
     <th:block th:include="frame/footer"></th:block>
-    
-
 </body>
 </html>

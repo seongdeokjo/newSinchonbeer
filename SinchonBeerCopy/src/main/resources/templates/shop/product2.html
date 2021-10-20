@@ -1,60 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gamguel</title>
-    
-    <th:block th:include="frame/metaheader"></th:block>
+
     <link rel="stylesheet" href="/css/shop/product.css" >
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- 이부분 기억할것 -->
-    <script>
-        
-		var gphotoname; // 사진이름
-        var price;
-        var amount;
-        var gidx;
-        var totalPrice;
-
-        $(document).ready(function(){
-            price = $('#price').val();
-            amount = $('#amount').val();
-            gidx = $('#price').val();
-
-            // 버튼 이벤트
-            $('#plus').click(function(){
-
-                amount++;
-                totalPrice = price * amount;
-                
-                $('#sum_p_num').text(totalPrice);
-                $('#amount').val(amount);
-
-            });
-
-            $('#minus').click(function(){
-                amount--;
-                totalPrice = price * amount;
-
-                $('#sum_p_num').text(totalPrice);
-                $('#amount').val(amount);
-            });
-            
-
-        });
-        
-        
-    </script>
-
+	<th:block th:include="frame/metaheader"></th:block>
 </head>
 <body>
-
-
 	<th:block th:include="frame/header"></th:block>
 	<th:block th:include="frame/nav"></th:block>
 	<!-- 세션 정보가 없을때 -> modal창 -->
@@ -62,8 +18,7 @@
 		<input type="hidden" th:value="Y" id="check">
 	</th:block>	
 	
-    <div class="container">
-            
+    <div class="container">            
             <img class="gim_thumbnail" src="/images/shop/citrus.png" alt="김부각가가가가" >
             <div class="product_1">
                 <h1 class="product_name">SINCHON GARNISH</h1>
@@ -94,21 +49,12 @@
                             </div>
 		                    <div class="row">
 		                            <input type="submit" value="BuyNow"  class="button_form1" style="color: #fff; background-color: #5ae5ec;">
-		                            <input type="submit" value="Basket" formaction="/basket/basket" class="button_form2"  style="color: #5ae5ec; background-color: #fff;">
-		                         
-		
+		                            <input type="submit" value="Basket" formaction="/basket/basket" class="button_form2"  style="color: #5ae5ec; background-color: #fff;">		                        		
 		                    </div>	                
-                        </form>
-                        
-                    </div>
-                    
-                
-                
-            </div>
-    
-        
-        <div id="description">
-            
+                        </form>                       
+                    </div>                                                  
+            </div>       
+        <div id="description">            
             <h4 class="goods_detail">상세 정보</h4>
             <hr   class="goods_down" >
             <img class="gim_thumbnail2" src="/images/shop/citrus.png">
@@ -220,14 +166,12 @@
                         <li>제품 배송 이후 환불 요청 시에는 제품 회수 후에 환불이 완료됩니다.</li>
                         <li>자세한 사항은 고객센터 혹은 문의 게시판에 문의해주세요.</li>
                     </ul>
-
                 </div>
-
-
             </div>
         </div>
-
     </div>
+    
+    <script th:src="@{/js/shop/proudct.js}"></script>
     <!-- footer -->
     <th:block th:include="frame/footer"></th:block>
 </body>

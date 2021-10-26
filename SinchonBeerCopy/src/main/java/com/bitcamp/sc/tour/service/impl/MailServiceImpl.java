@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -112,6 +113,7 @@ public class MailServiceImpl implements MailService {
 
 	// 예약 완료
 	@Override
+	@Async("mailExecutor")
 	public void completeMail(PayInfo payInfo,LoginInfo member) {
 		logger.info("결제 완료 메일 서비스 진입");
 		

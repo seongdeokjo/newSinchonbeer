@@ -1,5 +1,7 @@
 package com.bitcamp.sc.pay.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +30,7 @@ import lombok.extern.java.Log;
 @AllArgsConstructor
 @Controller
 public class KakaoPayController {
-
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private KakaoPay kakaoPay;
 	private PayServiceImpl payService;
 	private OrderService orderService;
@@ -92,6 +94,9 @@ public class KakaoPayController {
 		OrderInfo orderInfo = orderService.getOrderInfo(orderIdx);
 		
 		KakaoPayApproval kakaoPayApproval = kakaoPay.kakaoPayInfo(pg_token, orderInfo);
+		logger.info("getCid = "+kakaoPayApproval.getCid() +", getTid = "+kakaoPayApproval.getTid()+
+					"getTax_free = "+kakaoPayApproval.getTax_free_amount()+", getAmount = "+kakaoPayApproval.getAmount()+", get_vat_amount =  "+kakaoPayApproval.getVat_amount()
+					);
 		
 		PayInfo payInfo = payService.approvalToPayInfo(kakaoPayApproval);
 		payService.savePayment(payInfo);

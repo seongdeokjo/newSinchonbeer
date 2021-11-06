@@ -2,6 +2,7 @@ package com.bitcamp.sc.tour.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import com.bitcamp.sc.tour.domain.TourDto;
 public class TourController {
 	
 	// 투어 메인 페이지
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@GetMapping
 	public String getTour() {
 		return "tour/views/tour";
 	}
@@ -39,23 +40,14 @@ public class TourController {
 
 	// 투어 예약 페이지 이동
 	@RequestMapping(value = "/pick-date", method = RequestMethod.GET)
-	public String getPickDate() {
-		
+	public String getPickDate() {		
 		return "tour/makeReservation/pick-date";
 	}
 
 	// 날짜 , 인원 선택 후 예약 폼으로 이동 --> 로그인 여부 체크 / 날짜,인원,카테고리(투어), 회원 정보가 잘 들어오는지 ?
 	@RequestMapping(value = "/reserve/form", method = RequestMethod.GET)
-	public String getForm(
-			@ModelAttribute TourDto tour,
-			Model model
-			) {
-
-		System.out.println(tour);
+	public String getForm(@ModelAttribute TourDto tour, Model model) {
 		model.addAttribute("tour", tour);
-
 		return "tour/makeReservation/reservationForm";
 	}
-
-
 }

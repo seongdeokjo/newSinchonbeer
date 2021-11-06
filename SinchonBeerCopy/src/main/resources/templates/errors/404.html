@@ -3,22 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Test Error Page!</title>
-<link rel="stylesheet" th:href="@{/css/style.css}"></link>
+<th:block th:replace="frame/metaheader"></th:block>
 </head>
 <body>
-	<div class="errorPage">
-		<span class="errorHead">404 error!</span><br />
-		<p th:text="${'path: ' + path}"></p>
-		<p th:text="${'status: ' + status}"></p>
-		<p th:text="${'timestamp: ' + timestamp}"></p>
-		<p th:text="${'error: ' + error}"></p>
-		<p th:text="${'errors: ' + errors}"></p>
-		<p th:text="${'exception: ' + exception}"></p>
-		<p th:text="${'message: ' + message}"></p>
-		<p th:text="${'trace: ' + trace}"></p>
-		
-		<a th:href="@{/tour}" >홈페이지</a>
-		
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<h1>잘못된 접근입니다!!</h1>
+				<a th:href="@{/tour}" >홈페이지로 돌아가기</a>
+			</div>
+		</div>
+	
 	</div>
+	
+		
+		
 </body>
 </html>
